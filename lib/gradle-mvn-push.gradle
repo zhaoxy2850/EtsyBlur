@@ -1,0 +1,28 @@
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+signing {
+    required { has("release") && gradle.taskGraph.hasTask("uploadArchives") }
+    sign configurations.archives
+}
+
+uploadArchives {
+    configuration = configurations.archives
+    repositories.mavenDeployer {
+        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+        repository(url: 'http://192.168.1.32:8081/nexus/content/repositories/xiaodupi/') {//仓库地址
+            authentication(userName: "admin",//用户名
+                    password: "admin123")//密码
+        }
+
+        pom.project {
+            name 'EtsyBlur'
+            packaging 'aar'
+            description 'none'
+            url 'http://192.168.1.32:8081/nexus/content/repositories/xiaodupi/'//仓库地址
+            groupId "com.team108.xiaodupi"
+            artifactId "etsyblur"
+            version "0.1.2"
+        }
+    }
+}
