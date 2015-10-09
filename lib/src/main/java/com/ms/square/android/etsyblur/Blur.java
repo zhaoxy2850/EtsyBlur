@@ -14,7 +14,7 @@ import android.support.v8.renderscript.ScriptIntrinsicBlur;
  */
 public class Blur {
 
-    private static final int DEFAULT_BLUR_RADIUS = 10;
+    private static final int DEFAULT_BLUR_RADIUS = 15;
 
     public static Bitmap apply(Context context, Bitmap sentBitmap) {
         return apply(context, sentBitmap, DEFAULT_BLUR_RADIUS);
