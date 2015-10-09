@@ -6,7 +6,6 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StyleRes;
 import android.support.v4.app.DialogFragment;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -104,16 +103,16 @@ public class BlurDialogFragmentHelper {
             }
         });
 
-        View view = mFragment.getView();
-        if (view != null) {
-            view.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    mFragment.dismiss();
-                    return true;
-                }
-            });
-        }
+//        View view = mFragment.getView();
+//        if (view != null) {
+//            view.setOnTouchListener(new View.OnTouchListener() {
+//                @Override
+//                public boolean onTouch(View v, MotionEvent event) {
+//                    mFragment.dismiss();
+//                    return true;
+//                }
+//            });
+//        }
     }
 
     public void onStart() {
